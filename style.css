@@ -12,29 +12,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
-
-.fade-hidden {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    opacity: 0;
-    transform: translateY(10px);
-}
-
-.centered {
-    text-align: center;
-}
-
-.fade-in {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 1s ease, transform 1s ease;
+    overflow: hidden;
 }
 
 .intro {
@@ -59,7 +37,8 @@ html, body {
     width: 80px;
     height: 80px;
     position: absolute;
-    inset: 50%;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
@@ -88,11 +67,25 @@ html, body {
     }
 }
 
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.content.fade-in {
+    opacity: 1;
+}
+
 .snow {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 1;
+    z-index: 10000;
 }
 
 .snow span {
@@ -104,21 +97,38 @@ html, body {
     animation: snow-fall linear infinite;
 }
 
-.snow span:nth-child(1) { left: 5%; animation-duration: 12s; }
-.snow span:nth-child(2) { left: 15%; animation-duration: 18s; font-size: 18px; }
-.snow span:nth-child(3) { left: 25%; animation-duration: 14s; }
-.snow span:nth-child(4) { left: 35%; animation-duration: 20s; font-size: 22px; }
-.snow span:nth-child(5) { left: 45%; animation-duration: 16s; }
-.snow span:nth-child(6) { left: 55%; animation-duration: 13s; font-size: 17px; }
-.snow span:nth-child(7) { left: 65%; animation-duration: 19s; }
-.snow span:nth-child(8) { left: 75%; animation-duration: 15s; font-size: 20px; }
-.snow span:nth-child(9) { left: 85%; animation-duration: 21s; }
-.snow span:nth-child(10){ left: 95%; animation-duration: 17s; }
-.snow span:nth-child(11){ left: 10%; animation-duration: 22s; font-size: 16px; }
-.snow span:nth-child(12){ left: 30%; animation-duration: 14s; }
-.snow span:nth-child(13){ left: 50%; animation-duration: 18s; font-size: 19px; }
-.snow span:nth-child(14){ left: 70%; animation-duration: 13s; }
-.snow span:nth-child(15){ left: 90%; animation-duration: 20s; font-size: 15px; }
+.snow span:nth-child(1) { left: 5%; animation-duration: 12s; animation-delay: 0s; }
+.snow span:nth-child(2) { left: 15%; animation-duration: 18s; font-size: 18px; animation-delay: 2s; }
+.snow span:nth-child(3) { left: 25%; animation-duration: 14s; animation-delay: 4s; }
+.snow span:nth-child(4) { left: 35%; animation-duration: 20s; font-size: 22px; animation-delay: 1s; }
+.snow span:nth-child(5) { left: 45%; animation-duration: 16s; animation-delay: 3s; }
+.snow span:nth-child(6) { left: 55%; animation-duration: 13s; font-size: 17px; animation-delay: 5s; }
+.snow span:nth-child(7) { left: 65%; animation-duration: 19s; animation-delay: 2s; }
+.snow span:nth-child(8) { left: 75%; animation-duration: 15s; font-size: 20px; animation-delay: 4s; }
+.snow span:nth-child(9) { left: 85%; animation-duration: 21s; animation-delay: 1s; }
+.snow span:nth-child(10){ left: 95%; animation-duration: 17s; animation-delay: 3s; }
+.snow span:nth-child(11){ left: 10%; animation-duration: 22s; font-size: 16px; animation-delay: 5s; }
+.snow span:nth-child(12){ left: 30%; animation-duration: 14s; animation-delay: 2s; }
+.snow span:nth-child(13){ left: 50%; animation-duration: 18s; font-size: 19px; animation-delay: 4s; }
+.snow span:nth-child(14){ left: 70%; animation-duration: 13s; animation-delay: 1s; }
+.snow span:nth-child(15){ left: 90%; animation-duration: 20s; font-size: 15px; animation-delay: 3s; }
+.snow span:nth-child(16){ left: 8%; animation-duration: 16s; animation-delay: 5s; }
+.snow span:nth-child(17){ left: 18%; animation-duration: 19s; font-size: 21px; animation-delay: 2s; }
+.snow span:nth-child(18){ left: 28%; animation-duration: 15s; animation-delay: 4s; }
+.snow span:nth-child(19){ left: 38%; animation-duration: 17s; animation-delay: 1s; }
+.snow span:nth-child(20){ left: 48%; animation-duration: 21s; font-size: 18px; animation-delay: 3s; }
+.snow span:nth-child(21){ left: 58%; animation-duration: 14s; animation-delay: 5s; }
+.snow span:nth-child(22){ left: 68%; animation-duration: 20s; animation-delay: 2s; }
+.snow span:nth-child(23){ left: 78%; animation-duration: 16s; font-size: 19px; animation-delay: 4s; }
+.snow span:nth-child(24){ left: 88%; animation-duration: 18s; animation-delay: 1s; }
+.snow span:nth-child(25){ left: 12%; animation-duration: 22s; animation-delay: 3s; }
+.snow span:nth-child(26){ left: 22%; animation-duration: 15s; font-size: 17px; animation-delay: 5s; }
+.snow span:nth-child(27){ left: 42%; animation-duration: 19s; animation-delay: 2s; }
+.snow span:nth-child(28){ left: 62%; animation-duration: 17s; animation-delay: 4s; }
+.snow span:nth-child(29){ left: 72%; animation-duration: 21s; font-size: 20px; animation-delay: 1s; }
+.snow span:nth-child(30){ left: 82%; animation-duration: 14s; animation-delay: 3s; }
+.snow span:nth-child(31){ left: 92%; animation-duration: 18s; animation-delay: 5s; }
+.snow span:nth-child(32){ left: 3%; animation-duration: 16s; font-size: 16px; animation-delay: 2s; }
 
 @keyframes snow-fall {
     0% {
