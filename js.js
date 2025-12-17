@@ -2,6 +2,8 @@ window.addEventListener("load", () => {
     const intro = document.getElementById("intro");
     const content = document.getElementById("content");
 
+    if (!intro || !content) return;
+
     setTimeout(() => {
         intro.classList.add("fade-out");
 
